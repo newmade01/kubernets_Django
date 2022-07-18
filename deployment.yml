@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-django-deployment
+  labels: 
+    app: kubernetes-django-jjk
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: kubernetes-django-jjk
+  template:
+    metadata:
+      labels:
+        app: kubernetes-django-jjk
+    spec:
+      containers:
+      - name: kubernetes-django-jjk
+        image: kubernetes-django-jjk
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000 
